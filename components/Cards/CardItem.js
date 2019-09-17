@@ -6,28 +6,24 @@ import {
   PokemonImage,
   PokemonName,
   Description,
-  ShowMore,
-  Reference,
   ShadowContainer
 } from "../../styles/cards/cards";
 
-const CardItem = ({ name, image }) => (
+const CardItem = React.forwardRef(({ onClick, href, name, image }, ref) => (
   <CardItemContainer>
-    <ShadowContainer>
-      <PokemonImage src={image} />
-      <PokemonName>{name}</PokemonName>
-      <Description>
-        «Покемо́н» — популярная медиафраншиза, созданная Сатоси Тадзири в 1996
-        году. Товарный знак «Покемон» принадлежит Nintendo, одной из крупнейших
-        фирм-разработчиков видеоигр.
-      </Description>
-    </ShadowContainer>
-    <ShowMore>
-      <Reference href="#">SHARE</Reference>
-      <Reference href="#">LEARN MORE</Reference>
-    </ShowMore>
+    <a href={href} onClick={onClick} ref={ref}>
+      <ShadowContainer>
+        <PokemonImage src={image} />
+        <PokemonName>{name}</PokemonName>
+        <Description>
+          «Покемо́н» — популярная медиафраншиза, созданная Сатоси Тадзири в 1996
+          году. Товарный знак «Покемон» принадлежит Nintendo, одной из
+          крупнейших фирм-разработчиков видеоигр.
+        </Description>
+      </ShadowContainer>
+    </a>
   </CardItemContainer>
-);
+));
 
 CardItem.propTypes = {
   name: PropTypes.string.isRequired,

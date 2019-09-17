@@ -33,8 +33,9 @@ const round = keyframes`
 
 const GlobalStyle = createGlobalStyle`
   body {
-    margin: 0; 
+    margin: 0;
   }
+  
 `;
 const LoadingContainer = styled.div`
   background: ${({ theme }) => theme.colors.primary};
@@ -103,20 +104,19 @@ const Description = styled.span`
 `;
 
 const ShowMore = styled.div`
-  display: flex;
-`;
-
-const Reference = styled.a`
+  text-align: center;
+  width: 100px;
   color: blue;
-  text-decoration: none;
   font-weight: bold;
   font-size: 14px;
   border-radius: 15px;
-  margin: 10px 10px 15px 10px;
+  text-decoration: none;
+  margin: 10px 10px 10px 20px;
   padding: 10px;
   &:hover {
     background: ${({ theme }) => theme.colors.primary};
     opacity: 0.7;
+    cursor: pointer;
   }
 `;
 
@@ -148,7 +148,6 @@ export {
   Description,
   PokemonName,
   ShowMore,
-  Reference,
   ShadowContainer,
   GlobalStyle,
   LoadingContainer,

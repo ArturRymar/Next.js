@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import Link from "next/link";
 //styles
 import { CardsContainer } from "../../styles/cards/cards";
 //components
@@ -9,7 +10,9 @@ const Cards = ({ data }) => {
   return (
     <CardsContainer>
       {data.map(({ name, id, image }) => (
-        <CardItem name={name} key={id} image={image} />
+        <Link href={{ pathname: "/pokemon-details", query: { id: id } }}>
+          <CardItem name={name} key={id} image={image} />
+        </Link>
       ))}
     </CardsContainer>
   );
