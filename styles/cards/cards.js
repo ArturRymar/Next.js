@@ -66,7 +66,7 @@ const LoadingDescription = styled.p`
   font-family: Arial;
 `;
 
-const CardItemContainer = styled.div`
+const CardItemContainer = styled.a`
   display: flex;
   flex-flow: column nowrap;
   flex: 1;
@@ -74,6 +74,20 @@ const CardItemContainer = styled.div`
   margin: 10px;
   position: relative;
   background: white;
+  &:hover:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      77deg,
+      rgb(31, 33, 27) 100%,
+      rgb(31, 33, 27) 100%
+    );
+    opacity: 0.1;
+    cursor: pointer;
 `;
 
 const CardsContainer = styled.div`
@@ -120,26 +134,6 @@ const ShowMore = styled.div`
   }
 `;
 
-const ShadowContainer = styled.div`
-  display: flex;
-  flex-flow: column nowrap;
-  position: relative;
-  &:hover:after {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-      77deg,
-      rgb(31, 33, 27) 100%,
-      rgb(31, 33, 27) 100%
-    );
-    opacity: 0.1;
-  }
-`;
-
 export {
   Loading,
   CardItemContainer,
@@ -148,7 +142,6 @@ export {
   Description,
   PokemonName,
   ShowMore,
-  ShadowContainer,
   GlobalStyle,
   LoadingContainer,
   LoadingDescription

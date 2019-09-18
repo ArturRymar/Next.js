@@ -10,8 +10,11 @@ const Cards = ({ data }) => {
   return (
     <CardsContainer>
       {data.map(({ name, id, image }) => (
-        <Link href={{ pathname: "/pokemon-details", query: { id: id } }}>
-          <CardItem name={name} key={id} image={image} />
+        <Link
+          href={{ pathname: "/pokemon-details", query: { id: id } }}
+          key={id}
+        >
+          <CardItem name={name} image={image} />
         </Link>
       ))}
     </CardsContainer>
