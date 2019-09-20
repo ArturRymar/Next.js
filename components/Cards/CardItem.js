@@ -2,14 +2,14 @@ import React from "react";
 import PropTypes from "prop-types";
 //styles
 import {
-  CardItemContainer,
+  PokemonContainer,
   PokemonImage,
   PokemonName,
   Description
 } from "../../styles/cards/cards";
 
-const CardItem = React.forwardRef(({ onClick, href, name, image }, ref) => (
-  <CardItemContainer href={href} onClick={onClick} ref={ref}>
+const CardItem = ({ name, image }) => (
+  <PokemonContainer>
     <PokemonImage src={image} />
     <PokemonName>{name}</PokemonName>
     <Description>
@@ -17,8 +17,8 @@ const CardItem = React.forwardRef(({ onClick, href, name, image }, ref) => (
       году. Товарный знак «Покемон» принадлежит Nintendo, одной из крупнейших
       фирм-разработчиков видеоигр.
     </Description>
-  </CardItemContainer>
-));
+  </PokemonContainer>
+);
 
 CardItem.propTypes = {
   name: PropTypes.string.isRequired,

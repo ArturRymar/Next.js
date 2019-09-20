@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import Link from "next/link";
 //styles
-import { CardsContainer } from "../../styles/cards/cards";
+import { CardsContainer, CardItemContainer } from "../../styles/cards/cards";
 //components
 import CardItem from "./CardItem";
 
@@ -11,10 +11,14 @@ const Cards = ({ data }) => {
     <CardsContainer>
       {data.map(({ name, id, image }) => (
         <Link
-          href={{ pathname: "/pokemon-details", query: { id: id } }}
+          href="/pokemon-details/[id]"
+          as={`/pokemon-details/${id}`}
           key={id}
+          passHref
         >
-          <CardItem name={name} image={image} />
+          <CardItemContainer>
+            <CardItem name={name} image={image} />
+          </CardItemContainer>
         </Link>
       ))}
     </CardsContainer>

@@ -1,18 +1,18 @@
 import React from "react";
-import withApollo from "../lib/apollo";
+import withApollo from "../../lib/apollo";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import gql from "graphql-tag";
 import { useQuery } from "@apollo/react-hooks";
 //styles
 import {
-  ShowMore,
+  Back,
   Loading,
   LoadingContainer,
   LoadingDescription,
   GlobalStyle,
   PokemonImage
-} from "../styles/cards/cards";
+} from "../../styles/cards/cards";
 import {
   Container,
   Content,
@@ -20,14 +20,14 @@ import {
   Item,
   Type,
   Classification
-} from "../styles/cards/pokemon-details";
+} from "../../styles/cards/pokemon-details";
 //components
-import AttacksTable from "../components/Pokemon-details/AttacksTable";
-import App from "../components/App";
+import AttacksTable from "../../components/Pokemon-details/AttacksTable";
+import App from "../../components/App";
 
 const GET_POKEMON = gql`
-  query Pokemon($pokemonId: String!) {
-    pokemon(id: $pokemonId) {
+  query Pokemon($id: String!) {
+    pokemon(id: $id) {
       name
       weight {
         minimum
@@ -60,10 +60,10 @@ const GET_POKEMON = gql`
 
 const PokemonDetails = () => {
   const router = useRouter();
-  const pokemonId = router.query.id;
+  const { id } = router.query;
 
   const { loading, error, data } = useQuery(GET_POKEMON, {
-    variables: { pokemonId }
+    variables: { id }
   });
 
   if (loading)
@@ -79,8 +79,8 @@ const PokemonDetails = () => {
 
   return (
     <App>
-      <Link href="/">
-        <ShowMore>Back to main page</ShowMore>
+      <Link href="/" passHref>
+        <Back>Back to main page</Back>
       </Link>
       <Container>
         <ImageContainer>
