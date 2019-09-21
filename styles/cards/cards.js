@@ -73,12 +73,10 @@ const CardsContainer = styled.div`
   background: ${({ theme }) => theme.colors.primary};
 `;
 
-const CardItemContainer = styled.a`
+const CardItemContainer = styled.div`
   display: flex;
   flex-flow: column nowrap;
   flex: 1;
-  text-decoration: none;
-  color: black;
   cursor: auto;
 `;
 
